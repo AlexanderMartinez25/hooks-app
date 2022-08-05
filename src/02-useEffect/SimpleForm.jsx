@@ -18,9 +18,18 @@ export const SimpleForm = () => {
   };
 
   // se dispara cada vez que hay cambios en los inputs
+  // con [] se ejecta solo una vez al renderizar el componente
   useEffect(() => {
     console.log("useEfect called!");
-  });
+  }, []);
+
+  useEffect(() => {
+    console.log("FomrState called!");
+  }, [formState]);
+
+  useEffect(() => {
+    console.log("email called!");
+  }, [email]);
 
   return (
     <>
