@@ -5,7 +5,7 @@ export const Message = () => {
   useEffect(() => {
     console.log("message mounted");
 
-    // cuando deja de existir (removido)
+    // cuando deja de existir (removido) se limpia
     return () => {
       console.log("Message unMounted");
     };
