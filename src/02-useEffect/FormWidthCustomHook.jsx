@@ -1,11 +1,12 @@
 import { useForm } from "../hooks/useForm";
 
 export const FormWidthCustomHook = () => {
-  const { formState, onInputChange, username, password, email } = useForm({
-    username: "",
-    email: "",
-    password: "",
-  });
+  const { formState, onInputChange, onResetForm, username, password, email } =
+    useForm({
+      username: "",
+      email: "",
+      password: "",
+    });
 
   // const { username, email, password } = formState;
 
@@ -38,6 +39,10 @@ export const FormWidthCustomHook = () => {
         value={password}
         onChange={onInputChange}
       />
+
+      <button onClick={onResetForm} className="btn btn-primary mt-2">
+        Borrar
+      </button>
     </>
   );
 };
