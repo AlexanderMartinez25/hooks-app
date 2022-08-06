@@ -1,19 +1,25 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export const Message = () => {
+  const [coords, setCoords] = useState({ x: 0, y: 0 });
+
   // cuando es llamado
   useEffect(() => {
-    console.log("message mounted");
+    const onMouseMove = ({ x, y }) => {
+      setCoords({ x, y });
+    };
 
+    window.addEventListener("mousemove", onMouseMove);
     // cuando deja de existir (removido) se limpia
     return () => {
-      console.log("Message unMounted");
+      window.removeEventListener("mousemove", onMouseMove);
     };
   }, []);
 
   return (
     <>
       <h3>Usuario ya existe</h3>
+      <p>{JSON.stringify(coords)}</p>
     </>
   );
 };
