@@ -4,12 +4,13 @@ import ReactDOM from "react-dom/client";
 // import { CounterWithCustomHook } from "./01-useState/CounterWithCustomHook";
 // import { HooksApp } from "./HooksApp";
 // import { SimpleForm } from "./02-useEffect/SimpleForm";
-import { FormWidthCustomHook } from "./02-useEffect/FormWidthCustomHook";
+// import { FormWidthCustomHook } from "./02-useEffect/FormWidthCustomHook";
+import { MulitipleCustomHooks } from "./03-examples/MulitipleCustomHooks";
 
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   // <React.StrictMode>
-  <FormWidthCustomHook />
+  <MulitipleCustomHooks />
   // </React.StrictMode>
 );
