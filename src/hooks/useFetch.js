@@ -22,8 +22,6 @@ export const useFetch = (url) => {
       isLoading: false,
       hasError: null,
     });
-
-    console.log(data);
   };
 
   // cada vez que el URL cambie, se dispare el useEffect
