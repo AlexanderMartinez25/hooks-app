@@ -1,6 +1,7 @@
 import { useRef } from "react";
 
 export const FocusScreen = () => {
+  // hacer referencia a un elemento html
   const inputRef = useRef();
 
   const onClick = () => {
