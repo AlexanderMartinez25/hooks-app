@@ -1,21 +1,28 @@
 import { useReducer } from "react";
+import { TodoAdd } from "./components/TodoAdd";
+import { TodoList } from "./components/TodoList";
 import { todoReducer } from "./TodoReducer";
 
 const initailState = [
   {
     id: new Date().getTime(),
-    desciption: "Recolectar la piedra del alma",
+    desciption: "Recolectar la piedra del Alma",
     done: false,
   },
   {
     id: new Date().getTime() * 2,
-    desciption: "Recolectar la piedra del alma",
+    desciption: "Recolectar la piedra del Infinito",
     done: false,
   },
 ];
 
 export const TodoApp = () => {
   const [todos, dispatch] = useReducer(todoReducer, initailState);
+
+  const handleNewTodo = (todo) => {
+    console.log({ todo });
+  };
+
   return (
     <>
       <h1>
@@ -25,34 +32,16 @@ export const TodoApp = () => {
 
       <div className="row">
         <div className="col-7">
-          <ul className="list-group">
-            {todos.map((todo) => (
-              <li
-                key={todo.id}
-                className="list-group-item d-flex justify-content-between"
-              >
-                <span className="align-self-center"> Item 1</span>
-                <button className="btn btn-danger">Borrar</button>
-              </li>
-            ))}
-          </ul>
+          {/* TodoList */}
+          <TodoList todos={todos} />
         </div>
 
         <div className="col-5">
           <h4>Agregar TODO</h4>
           <hr />
 
-          <form>
-            <input
-              type="text"
-              placeholder="¿Que hay que hacer?"
-              className="form-control"
-            />
-
-            <button type="submit" className="btn btn-outline-primary mt-2">
-              Agregar
-            </button>
-          </form>
+          {/* TodoApp */}
+          <TodoAdd onNewTodo={handleNewTodo} />
         </div>
       </div>
     </>
