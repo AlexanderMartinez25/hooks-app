@@ -5,8 +5,8 @@ export const CallBackHook = () => {
   const [counter, setCounter] = useState(10);
 
   // sirve para memorizar funciones, en este caso memoriza "incrementFather"
-  const incrementFather = useCallback(() => {
-    setCounter((value) => value + 1);
+  const incrementFather = useCallback((value) => {
+    setCounter((c) => c + value);
   }, []);
 
   // const incrementFather = () => {
