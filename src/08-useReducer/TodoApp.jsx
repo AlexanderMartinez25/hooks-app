@@ -1,23 +1,27 @@
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
 import { TodoAdd } from "./components/TodoAdd";
 import { TodoList } from "./components/TodoList";
 import { todoReducer } from "./TodoReducer";
 
 const initailState = [
-  {
-    id: new Date().getTime(),
-    description: "Recolectar la piedra del Alma",
-    done: false,
-  },
-  {
-    id: new Date().getTime() * 2,
-    description: "Recolectar la piedra del Infinito",
-    done: false,
-  },
+  //   {
+  //     id: new Date().getTime(),
+  //     description: "Recolectar la piedra del Alma",
+  //     done: false,
+  //   },
 ];
+const init = () => {
+  return JSON.parse(localStorage.getItem("todos") || []);
+};
 
 export const TodoApp = () => {
-  const [todos, dispatch] = useReducer(todoReducer, initailState);
+  // el "init" es para inicializarlo con algún valor
+  const [todos, dispatch] = useReducer(todoReducer, initailState, init);
+
+  // ejecutar cada vez que los todos cambien
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   const handleNewTodo = (todo) => {
     const action = {
