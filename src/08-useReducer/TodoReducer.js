@@ -1,7 +1,7 @@
 export const todoReducer = (initailState = [], action) => {
   switch (action.type) {
-    case "ABC":
-      throw new Error("action.type = ABC no esta implementada");
+    case "[TODO] Add Todo":
+      return [...initailState, action.payload];
 
     default:
       return initailState;

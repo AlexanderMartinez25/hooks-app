@@ -6,12 +6,12 @@ import { todoReducer } from "./TodoReducer";
 const initailState = [
   {
     id: new Date().getTime(),
-    desciption: "Recolectar la piedra del Alma",
+    description: "Recolectar la piedra del Alma",
     done: false,
   },
   {
     id: new Date().getTime() * 2,
-    desciption: "Recolectar la piedra del Infinito",
+    description: "Recolectar la piedra del Infinito",
     done: false,
   },
 ];
@@ -20,7 +20,12 @@ export const TodoApp = () => {
   const [todos, dispatch] = useReducer(todoReducer, initailState);
 
   const handleNewTodo = (todo) => {
-    console.log({ todo });
+    const action = {
+      type: "[TODO] Add Todo",
+      payload: todo,
+    };
+
+    dispatch(action);
   };
 
   return (
