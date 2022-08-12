@@ -1,5 +1,4 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import { useContext } from "react";
 import { UserContext } from "../../src/09-use-Context/context/UserContext";
 import { LoginPage } from "../../src/09-use-Context/LoginPage";
 
