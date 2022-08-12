@@ -24,6 +24,6 @@ describe("Pruebas en <TodoApp />", () => {
     expect(screen.getByText("Todo #2")).toBeTruthy();
     expect(screen.getByRole("textbox")).toBeTruthy();
 
-    console.log(screen.getByRole("textbox").name);
+    // console.log(screen.getByRole("textbox").name);
   });
 });
